@@ -1,5 +1,6 @@
 use std::io::{self, Write};
 use std::vec::Vec;
+use prettytable::{Table, Row, Cell};
 struct Coll {
     restriction: Vec<f64>,
     sign: String,
@@ -37,11 +38,11 @@ fn main() {
     }
 
     println!("t*");
-    print_table(&table);
+    print_first_table(&table);
     println!("");
     println!("ti");
     let mut table = flip_z(&mut table);
-    print_table(&table);
+    //print_table(&table);
     //pivot table until table is optimal
     // table is optimal when z has no negative values
     println!("");
@@ -50,27 +51,14 @@ fn main() {
         let pivot_col = find_pivot_col(&table);
         let ratio = ratio_test(&table, pivot_col);
         let pivot_row = find_pivot_row(&ratio);
+        print_table(&table,&pivot_col,&pivot_row);
         table = pivot_table(&mut table, pivot_row, pivot_col);
-        print_table(&table);
         println!("");
         if check_optimal(&table){
+            print_table(&table, &pivot_col, &pivot_row);
             optimal = true;
         }
     }
-    //
-    //
-    //println!("{}",find_pivot_col(&table));
-    //let pivot_col = find_pivot_col(&table);
-    //let ratios = ratio_test(&table, pivot_col);
-    //// print all ratios
-    //for ratio in &ratios {
-    //    println!("");
-    //    println!("{}",ratio);
-    //}
-    //let pivot_row = find_pivot_row(&ratios);
-    //let mut table = pivot_table(&mut table, pivot_row, pivot_col);
-    //println!("");
-    //print_table(&table);
 }
 
 fn check_optimal(table: &Vec<Vec<f64>>) -> bool {
@@ -88,14 +76,52 @@ fn check_optimal(table: &Vec<Vec<f64>>) -> bool {
     }
 }
 
-
-fn print_table(table: &Vec<Vec<f64>>) {
-    for i in 0..table.len() {
-        for j in 0..table[i].len() {
-            print!("{:.1$}\t", table[i][j],2);
+fn print_first_table(table: &Vec<Vec<f64>>){
+     let mut print_table = Table::new();
+    let mut titles: Vec<Cell> = vec![];
+    for title in 0..table[0].len(){
+        if title == table[1].len() - 1 {
+            titles.push(Cell::new("rhs"));
+        } else if title < table[0].len() / 2 {
+            titles.push(Cell::new(&format!("x{}",title+1)));
+        } else {
+            titles.push(Cell::new(&format!("s{}",title - table[0].len() / 2 + 1)));
         }
-        println!("");
     }
+    print_table.add_row(Row::new(titles));
+    for i in 0..table.len() {
+        let mut cells: Vec<Cell> = vec![];
+        for j in 0..table[i].len(){
+            cells.push(Cell::new(&table[i][j].to_string()));
+        };
+        print_table.add_row(Row::new(cells));
+    };
+    print_table.printstd();
+
+}
+
+
+fn print_table(table: &Vec<Vec<f64>>,pivot_col: &usize, pivot_row: &usize) {
+    let mut print_table = Table::new();
+    let mut titles: Vec<Cell> = vec![];
+    for title in 0..table[0].len(){
+        if title == table[0].len() - 1 {
+            titles.push(Cell::new("rhs"));
+        } else if title < table[0].len() / 2 {
+            titles.push(Cell::new(&format!("x{}",title+1)));
+        } else {
+            titles.push(Cell::new(&format!("s{}",title - table[0].len() / 2 + 1)));
+        }
+    }
+    print_table.add_row(Row::new(titles));
+    for i in 0..table.len() {
+        let mut cells: Vec<Cell> = vec![];
+        for j in 0..table[i].len(){
+            cells.push(Cell::new(&table[i][j].to_string()).style_spec(if j == *pivot_col || i == *pivot_row+1{ "Fgb"} else {""}));
+        };
+        print_table.add_row(Row::new(cells));
+    };
+    print_table.printstd();
 }
 
 fn pivot_table(table: &mut Vec<Vec<f64>>, pivot_row: usize, pivot_col: usize) -> Vec<Vec<f64>> {
