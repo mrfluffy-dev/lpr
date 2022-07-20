@@ -1,6 +1,10 @@
-use std::io::{self, Write};
 use std::vec::Vec;
 use crate::helpers::table_printers::{print_table, print_first_table};
+use crate::helpers::input::{
+    string_input,
+    int_input,
+    float_input,
+};
 struct Coll {
     restriction: Vec<f64>,
     sign: String,
@@ -78,53 +82,6 @@ fn check_optimal(table: &Vec<Vec<f64>>) -> bool {
     }
 }
 
-//fn print_first_table(table: &Vec<Vec<f64>>){
-//     let mut print_table = Table::new();
-//    let mut titles: Vec<Cell> = vec![];
-//    for title in 0..table[0].len(){
-//        if title == table[1].len() - 1 {
-//            titles.push(Cell::new("rhs"));
-//        } else if title < table[0].len() / 2 {
-//            titles.push(Cell::new(&format!("x{}",title+1)));
-//        } else {
-//            titles.push(Cell::new(&format!("s{}",title - table[0].len() / 2 + 1)));
-//        }
-//    }
-//    print_table.add_row(Row::new(titles));
-//    for i in 0..table.len() {
-//        let mut cells: Vec<Cell> = vec![];
-//        for j in 0..table[i].len(){
-//            cells.push(Cell::new(&table[i][j].to_string()));
-//        };
-//        print_table.add_row(Row::new(cells));
-//    };
-//    print_table.printstd();
-//
-//}
-//
-//
-//fn print_table(table: &Vec<Vec<f64>>,pivot_col: &usize, pivot_row: &usize) {
-//    let mut print_table = Table::new();
-//    let mut titles: Vec<Cell> = vec![];
-//    for title in 0..table[0].len(){
-//        if title == table[0].len() - 1 {
-//            titles.push(Cell::new("rhs"));
-//        } else if title < table[0].len() / 2 {
-//            titles.push(Cell::new(&format!("x{}",title+1)));
-//        } else {
-//            titles.push(Cell::new(&format!("s{}",title - table[0].len() / 2 + 1)));
-//        }
-//    }
-//    print_table.add_row(Row::new(titles));
-//    for i in 0..table.len() {
-//        let mut cells: Vec<Cell> = vec![];
-//        for j in 0..table[i].len(){
-//            cells.push(Cell::new(&table[i][j].to_string()).style_spec(if j == *pivot_col || i == *pivot_row+1{ "Fgb"} else {""}));
-//        };
-//        print_table.add_row(Row::new(cells));
-//    };
-//    print_table.printstd();
-//}
 
 fn pivot_table(table: &mut Vec<Vec<f64>>, pivot_row: usize, pivot_col: usize) -> Vec<Vec<f64>> {
     // firnd the pivot point
@@ -215,44 +172,4 @@ fn fill_coll(amount_restrictions: usize, amount_vars: usize) -> Vec<Coll> {
         colls.push(coll_local);
     }
     colls
-}
-
-
-
-pub fn string_input(prompt: &str) -> String {
-    print!("{}", prompt);
-    let mut input = String::new();
-    let _ = io::stdout().flush();
-    io::stdin()
-        .read_line(&mut input)
-        .expect("Error reading from STDIN");
-    input.trim().to_string()
-}
-
-pub fn int_input(prompt: &str) -> usize {
-    print!("{}", prompt);
-    let mut input = String::new();
-    let _ = io::stdout().flush();
-    io::stdin()
-        .read_line(&mut input)
-        .expect("Error reading from STDIN");
-    //try to parse the input as usize else return max usize
-    match input.trim().parse::<usize>() {
-        Ok(i) => i,
-        Err(_) => {
-            usize::max_value()
-        }
-    }
-}
-
-pub fn float_input(prompt: &str) -> f64 {
-    print!("{}", prompt);
-    let mut input = String::new();
-    let _ = io::stdout().flush();
-    io::stdin()
-        .read_line(&mut input)
-        .expect("Error reading from STDIN");
-    //try to parse the input as f64 else return max f64
-    let output = input.trim().parse::<f64>().unwrap();
-    output
 }
