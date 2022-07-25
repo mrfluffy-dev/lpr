@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "UsG+n8no52tNULnArv36wfnSHuyNsJtVw+cLkcJKa4zAucFyRBa7qGlEyQpU5Roj2w954zGpsMoMYS9LaYexCw==",
+  "success": true,
+  "projectFilePath": "/home/mrfluffy/Documents/c#/lpr381/lpr381.csproj",
+  "expectedPackageFiles": [
+    "/home/mrfluffy/.cache/NuGetPackages/consoletables/2.4.2/consoletables.2.4.2.nupkg.sha512",
+    "/home/mrfluffy/.cache/NuGetPackages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/home/mrfluffy/.cache/NuGetPackages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "/home/mrfluffy/.cache/NuGetPackages/system.io/4.3.0/system.io.4.3.0.nupkg.sha512",
+    "/home/mrfluffy/.cache/NuGetPackages/system.reflection/4.3.0/system.reflection.4.3.0.nupkg.sha512",
+    "/home/mrfluffy/.cache/NuGetPackages/system.reflection.primitives/4.3.0/system.reflection.primitives.4.3.0.nupkg.sha512",
+    "/home/mrfluffy/.cache/NuGetPackages/system.reflection.typeextensions/4.3.0/system.reflection.typeextensions.4.3.0.nupkg.sha512",
+    "/home/mrfluffy/.cache/NuGetPackages/system.runtime/4.3.0/system.runtime.4.3.0.nupkg.sha512",
+    "/home/mrfluffy/.cache/NuGetPackages/system.text.encoding/4.3.0/system.text.encoding.4.3.0.nupkg.sha512",
+    "/home/mrfluffy/.cache/NuGetPackages/system.threading.tasks/4.3.0/system.threading.tasks.4.3.0.nupkg.sha512",
+    "/home/mrfluffy/.cache/NuGetPackages/microsoft.aspnetcore.app.ref/6.0.6/microsoft.aspnetcore.app.ref.6.0.6.nupkg.sha512"
+  ],
+  "logs": []
+}
