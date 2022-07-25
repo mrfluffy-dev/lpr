@@ -129,7 +129,6 @@ class lpr381
         printTable(newTable);
         bool optimal = false;
         newTable = flipZ(newTable);
-        Console.WriteLine("\e[31mRed Text\e[0m");
         while (!optimal)
         {
             int pivotCol = findPivotCol(newTable);
