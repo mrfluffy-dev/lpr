@@ -1,0 +1,8 @@
+C:\Users\skyfa\Desktop\KyleKnoetze_junk_projects\Chessboardssolver\Chessboardssolver\bin\Debug\Chessboardssolver.exe.config
+C:\Users\skyfa\Desktop\KyleKnoetze_junk_projects\Chessboardssolver\Chessboardssolver\bin\Debug\Chessboardssolver.exe
+C:\Users\skyfa\Desktop\KyleKnoetze_junk_projects\Chessboardssolver\Chessboardssolver\bin\Debug\Chessboardssolver.pdb
+C:\Users\skyfa\Desktop\KyleKnoetze_junk_projects\Chessboardssolver\Chessboardssolver\obj\Debug\Chessboardssolver.csproj.AssemblyReference.cache
+C:\Users\skyfa\Desktop\KyleKnoetze_junk_projects\Chessboardssolver\Chessboardssolver\obj\Debug\Chessboardssolver.csproj.SuggestedBindingRedirects.cache
+C:\Users\skyfa\Desktop\KyleKnoetze_junk_projects\Chessboardssolver\Chessboardssolver\obj\Debug\Chessboardssolver.csproj.CoreCompileInputs.cache
+C:\Users\skyfa\Desktop\KyleKnoetze_junk_projects\Chessboardssolver\Chessboardssolver\obj\Debug\Chessboardssolver.exe
+C:\Users\skyfa\Desktop\KyleKnoetze_junk_projects\Chessboardssolver\Chessboardssolver\obj\Debug\Chessboardssolver.pdb
