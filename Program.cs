@@ -7,6 +7,8 @@ class lpr381
         //simplex.simplexAlgo();
         twoPhaseSimplex twoPhaseSimplex = new twoPhaseSimplex();
         twoPhaseSimplex.twoPhaseSimplexAlgo();
+        //chesssolver chesssolver = new chesssolver();
+        //chesssolver.chessAlgo();
     }
 }
 

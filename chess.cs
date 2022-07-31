@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace Backtracking
-{
+
     class chesssolver
     {
         static int N;
@@ -51,9 +50,9 @@ namespace Backtracking
             }
             return false;
         }
-        static void Main(string[] args)
+        public void chessAlgo()
         {
-            Console.WriteLine("state size of chess table exp '4' if you wish to make blocks out do exp 4[1][2]");
+            Console.WriteLine("state size of chess table example: 4");
             N = Convert.ToInt32(Console.ReadLine());
             int[,] board = new int[N, N];
             if (!theBoardSolver(board, 0))
@@ -64,4 +63,3 @@ namespace Backtracking
             Console.ReadLine();
         }
     }
-}
