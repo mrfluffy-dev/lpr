@@ -286,7 +286,7 @@ class twoPhaseSimplex
         return table;
     }
 
-        static int findPivotCol(List<List<float>> table)
+    static int findPivotCol(List<List<float>> table)
     {
         float largest = 0;
         int largestIndex = 0;
@@ -428,8 +428,5 @@ class twoPhaseSimplex
             }
         }
         return table;
-
     }
-
-    
 }
