@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
     class chesssolver
     {
         static int N;
@@ -50,9 +51,9 @@ using System.Threading.Tasks;
             }
             return false;
         }
-        public void chessAlgo()
+        public void chesssolvealgo()
         {
-            Console.WriteLine("state size of chess table example: 4");
+            Console.WriteLine("state size of chess table exp '4'");
             N = Convert.ToInt32(Console.ReadLine());
             int[,] board = new int[N, N];
             if (!theBoardSolver(board, 0))
